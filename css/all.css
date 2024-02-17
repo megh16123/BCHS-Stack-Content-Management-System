@@ -233,3 +233,17 @@ table,th,td{
 table{
 border-collapse: collapse;	
 }
+.text-input{
+	border:none;
+	border-bottom: 1px solid black;
+	background-color: transparent;
+	margin-top: 12%;
+	width: 100%;
+	height: 12%;
+  outline: none;
+}
+.text-input::placeholder{
+font-size: large;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}

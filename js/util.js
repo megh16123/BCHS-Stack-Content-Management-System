@@ -1,3 +1,4 @@
+let globurl = "http://192.168.199.56:7980/cgi-bin"
 const requestHandler = async(url,method,body)=>{
 const response = await fetch(url,{
                                 method:method,

@@ -10,7 +10,7 @@ const file = document.getElementById("myinput");
 			{
 				return;
 			}
-			const url = "http://192.168.199.56:7980/cgi-bin/something";
+			const url = globurl+"/something";
 		        const method = "POST";
 			const response = await requestHandler(url,method,event.target.result);
 
