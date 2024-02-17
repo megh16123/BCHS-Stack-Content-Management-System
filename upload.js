@@ -12,10 +12,10 @@ const file = document.getElementById("myinput");
 			}
 			const url = globurl+"/something";
 		        const method = "POST";
-			const content = await requestHandler(url,method,event.target.result);
-                        console.log(content);
-
-
+			const response = await requestHandler(url,method,event.target.result);
+		 const reader = response.body.getReader();
+		 const { done,value } = await reader.read();
+		 console.log(value.toString());
 		}
 	}
 	act.addEventListener('submit',handleSubmit);

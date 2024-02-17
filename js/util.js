@@ -1,11 +1,19 @@
-let globurl = "http://192.168.199.56:7980/cgi-bin"
+let globurl = "http://127.0.0.1:7980/cgi-bin"
+
+const decode_response = async(response) =>{
+	const reader = response.body.getReader();
+ 	const { done,value } = await reader.read();
+	return (new TextDecoder("utf-8").decode(value));
+}
+
 const requestHandler = async(url,method,body)=>{
 const response = await fetch(url,{
                                 method:method,
                                 mode:"cors",
                                 body:body
 });
-return response;
+
+return await decode_response(response);
 }
 const redirects = ()=>{
     try {
