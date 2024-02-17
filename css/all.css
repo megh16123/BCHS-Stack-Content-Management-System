@@ -241,9 +241,10 @@ border-collapse: collapse;
 	width: 100%;
 	height: 12%;
   outline: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: larger;
 }
 .text-input::placeholder{
 font-size: large;
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
 }

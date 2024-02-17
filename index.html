@@ -21,20 +21,5 @@
 </body>
 
 <script src="js/util.js"></script>
-<script>
-	document.getElementById("myform").addEventListener('submit',async(event)=>{
-		event.preventDefault();
-		const username = document.getElementById("username").value;
-		const password = document.getElementById('password').value;
-		const url= globurl+"/someendpoint";
-		const response = await requestHandler(url,"POST",btoa(username+password));
-		if(response.status===200){
-			// TODO : set the token in session storage 
-			window.location.replace("menu.html")
-		}else{
-			alert("Authentification Failed");
-		}
-	})
-</script>
-
+<script src="js/login.js"></script>
 </html>
