@@ -1,0 +1,53 @@
+common{back to menu 
+forms
+text input 
+file input
+table 
+headings 
+images 
+}
+menu.html{
+purpose : menu
+upload
+view file
+delete 
+logout
+profile
+}
+upload.html{
+input file (browse button)
+upload button 
+back to menu 
+}
+view.html{
+total size of drive
+total count of files
+list of files (tabular format)
+back to menu
+}
+delete.html{
+table (id,filename)
+input(id) -> to specify the id of file to be deleted 
+delete button 
+back to menu 
+}
+profile.html{
+display name
+image(profile picture
+short info 
+link to personal pages
+edit profile button
+}
+login.html{
+user name
+password
+login button
+}
+------ OPTIONAL SO FAR ---------------
+signup.html{
+display name
+short info
+link to personal pages 
+profile picture
+}
+

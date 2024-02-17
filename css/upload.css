@@ -1,0 +1,11 @@
+#myinput{
+box-shadow: grey 2px 2px 1px 0px;
+padding: .4em .4em .4em .4em;
+}
+#subtn{
+background: #5b59c2;
+color: white;
+margin-top: 0.4em;
+box-shadow: grey 2px 2px 1px 0px;
+padding: .4em .4em .4em .4em;
+}

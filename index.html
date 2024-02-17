@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login Page</title>
+		<link href="css/all.css" rel="stylesheet" />
+	
+	</head>
+	<style>
+.text-input{
+	border:none;
+	border-bottom: 1px solid black;
+	background-color: transparent;
+	margin-top: 12%;
+	width: 100%;
+	height: 12%;
+}
+.text-input::placeholder{
+font-size: large;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+	</style>
+<body>
+	<form id="myform" class="form" method="post" enctype="multipart/form-data">
+		<input id="username" class="text-input" type="text" placeholder="username" required>
+		<input id="password" class="text-input" type="password" placeholder="password" required>
+
+		<button id="subtn" class="button-31" type="submit">Log In</button>
+	</form>
+
+
+</body>
+
+<script src="js/util.js"></script>
+<script src="js/login.js"></script>
+
+</html>
