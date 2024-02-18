@@ -56,8 +56,22 @@ const processarr=(content)=>{
 
     const populate_table = (arr) =>{
         const table = document.getElementById('items');
+        const filesize = document.getElementById('filesize');
+        let total_size = 0;
         arr.map((items)=>{
+            total_size += Number(items['size'])
             table.innerHTML+=`<tr><td>${items['fname']}</td><td>${items['size']}</td></tr>`;
         });
+        filesize.innerText = `Total Size : ${total_size}`
     }
-    
+const fetch_files = async(e)=>{
+        const url = globurl+"/lst";
+        const token = sessionStorage.getItem("token")
+                const {content,status} = await requestHandler(url,"POST",token);
+                if(status !==200){
+                window.location.replace('index.html');
+                }else{
+                    const arr = processarr(content);
+                    populate_table(arr);
+                }
+    }    
