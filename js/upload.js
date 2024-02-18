@@ -1,4 +1,7 @@
+check_session();
 redirects();
+
+
 const file = document.getElementById("myinput");
 	const act = document.getElementById("myform");
 	const  handleSubmit = (event) =>{
@@ -12,38 +15,17 @@ const file = document.getElementById("myinput");
 			}
 			const url = globurl+"/something";
 		        const method = "POST";
-			const content = await requestHandler(url,method,event.target.result);
-                        console.log(content);
+			const {content,status} = await requestHandler(url,method,event.target.result);
+            if(status===200){
+				console.log(content);
+				alert("file uploaded successfully");
+				window.location.replace("menu.html");
+			}else{
+				alert(content)
+				window.location.replace("menu.html");
+			}
 
 
 		}
 	}
-	act.addEventListener('submit',handleSubmit);
-
-//function 1handleSubmit(event)
-//{
-//	event.preventDefault();
-//	console.log("in event handler\n");
-//	uploadFiles();
-//}
-//
-//function uploadFiles()
-//{
-//	const url = "http://192.168.199.56:7980/cgi-bin/example";
-//	const method = 'post';
-//	reader.readAsArrayBuffer(iv.files[0])
-//	const xhr = new XMLHttpRequest();
-//	var data = "";
-//	
-//	xhr.open(method,url);
-//	reader.onload = function(e) {
-//		console.log("here");
-//		const str = new TextDecoder().decode(reader.result);
-//		xhr.send(btoa(unescape(encodeURIComponent(str))));
-//		console.log(btoa(unescape(encodeURIComponent(str))));
-//	};
-//
-//
-//	console.log('hello world');
-//	console.log(data);
-//}
+act.addEventListener('submit',handleSubmit);

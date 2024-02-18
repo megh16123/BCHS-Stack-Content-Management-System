@@ -106,28 +106,14 @@ input[type="file"]::file-selector-button:active {
 }
 
 .button-32{
-    padding: 2% 4% 3% 2%;
+
     background-color: rgb(212, 183, 57);
-    font-size: 100%;
-    letter-spacing: .1em;
-    position: relative;
-    color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width:100%;
-    height: 10%;
-    margin-top: 4.5em;
-    box-shadow: 4px 2px 3px rgba(0, 0, 0, 0.25);
-    border: none
+
     
     
 }
 .button-32:hover{
-    transform: translateY(-20%);
-    transition: all 0.2s;
-    color: white;
-    background-color: rgb(112, 95, 20);
-    box-shadow: none;
-    font-weight: bolder;
+    color: rgb(112, 95, 20);
 }
 .logout{
     position: absolute;
@@ -142,10 +128,29 @@ input[type="file"]::file-selector-button:active {
     padding: 2px 4px 4px 2px;
     border: solid 1px;
 }
+button{
+  cursor: pointer;
+}
 .logout:hover{
     background-color: #f0eff0;
     color: rgba(213, 25, 25, 0.885);
     transition: all .7s;
+}
+.button-32{
+  position: absolute;
+  height: 3rem;
+  width: 15rem;
+  top: 20px;
+  letter-spacing: .1em;
+  right:10em;
+  font-size: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 2px 4px 4px 2px;
+  border: solid 1px;
+}
+.button-32:hover{
+  background-color: #f0eff0;
+  transition: all .7s;
 }
 
 .button-33{
@@ -242,9 +247,10 @@ border-collapse: collapse;
 	height: 12%;
   outline: none;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: larger;
+  font-size: x-large;
 }
 .text-input::placeholder{
 font-size: large;
+font-weight: 300;
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
