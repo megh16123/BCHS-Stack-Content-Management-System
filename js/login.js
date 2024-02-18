@@ -3,10 +3,10 @@ document.getElementById("myform").addEventListener('submit',async(event)=>{
     event.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById('password').value;
-    const url= globurl+"/someendpoint";
-    const {content,status} = await requestHandler(url,"POST",btoa(username)+","+btoa(password));
+    const url= globurl+"/auth";
+    const {content,status} = await requestHandler(url,"POST",btoa(username+password+"\n"));
     if(status===200){
-        // TODO : set the token in session storage 
+        sessionStorage.setItem('token',btoa(username)+btoa(password)+content); 
         window.location.replace("menu.html")
     }else{
         alert("Authentification Failed");

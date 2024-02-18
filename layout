@@ -18,6 +18,7 @@ upload.html{
 input file (browse button)
 upload button 
 back to menu 
+file : name validation should only contain alphanumeric . _ - | filesize < 4MB && file shouldn't have any microsoft file extension
 }
 view.html{
 total size of drive

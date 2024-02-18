@@ -26,32 +26,40 @@ if(response.status===200){
 return output;
 
 }
-const check_session = ()=>{
+const check_session = () => {
 const url = globurl+"/session";
 const token = sessionStorage.getItem("token")
+if(token==null){
+    window.location.replace("session.html");    
+}
 const {content,status} = requestHandler(url,"POST",token);
 if(status!==200){
-// window.location.replace("session.html");
+window.location.replace("session.html");
 }
 }
 const redirects = ()=>{
     try {
-        
-            document.getElementById('logout').addEventListener("click",(event)=>{
-                console.log("hello")
-                window.location.replace("index.html")});   
+    document.getElementById('logout').addEventListener("click",(event)=>{
+        sessionStorage.removeItem('token');
+        window.location.replace("index.html");
+    });   
     } catch (error) {    }
     try {
-         document.getElementById('back-to-menu').addEventListener("click",(event)=>{
-            window.location.replace("menu.html");
-            });
+        document.getElementById('back-to-menu').addEventListener("click",(event)=>{
+        window.location.replace("menu.html");
+    });
     } catch (error) {}
     
     
 }
 const processarr=(content)=>{
-    let output = content;
-    return content;
+    content = content.split("\n");
+    const output = []
+    content.map((item)=>{
+        const temp=item.split(",");
+        output.push({fname:temp[0],size:temp[1]})
+    })
+    return output;
     }
 
     const populate_table = (arr) =>{
@@ -69,7 +77,8 @@ const fetch_files = async(e)=>{
         const token = sessionStorage.getItem("token")
                 const {content,status} = await requestHandler(url,"POST",token);
                 if(status !==200){
-                window.location.replace('index.html');
+                win
+                dow.location.replace('index.html');
                 }else{
                     const arr = processarr(content);
                     populate_table(arr);
