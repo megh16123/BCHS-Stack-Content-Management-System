@@ -1,3 +1,12 @@
+/*
+	intput: b64( uidpasswd ),token
+	output: if valid - valid
+			invalid - 503 server error
+
+*/
+
+
+
 
 #include "sqlite3.h"
 #include <stdio.h>
