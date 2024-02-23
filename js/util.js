@@ -26,13 +26,13 @@ if(response.status===200){
 return output;
 
 }
-const check_session = () => {
+const check_session = async() => {
 const url = globurl+"/session";
 const token = sessionStorage.getItem("token")
 if(token==null){
     window.location.replace("session.html");    
 }
-const {content,status} = requestHandler(url,"POST",token);
+const {content,status} = await requestHandler(url,"POST",token);
 if(status!==200){
 window.location.replace("session.html");
 }
