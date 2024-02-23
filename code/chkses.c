@@ -38,13 +38,10 @@ int main()
 	sqlite3 *curdb;
 	int ret_status_code = -1;
 	char * len = getenv("CONTENT_LENGTH");
+	long ll=0;
 	if( len != NULL && (ll = atoi(len))>0 )
 	{
-		long ll = atoi(len);
 
-		puts("Status: 200 OK\r");
-		puts("Content-Type: text/html\r");
-		puts("\r");
 		int i=0;
 		char  userstring[1024]; 
 		while( i<ll && i<1024 )
@@ -52,10 +49,19 @@ int main()
 			userstring[i] = getchar();
 			i++;
 		}
-
 		userstring[i]='\0';
-		if( i==ll && check_valid_user(userstring) == 1 && udb[0]!=0 )
+		char userID[100];
+		int ui=0;
+		while( userstring[ui] != ',' && ui<ll )
+		{
+			userID[ui]=userstring[ui];
+			ui++;
 
+		}
+		userID[ui]=0;
+		ui++;
+		if( i==ll && ui<ll &&  check_valid_user(userID) == 1 && udb[0]!=0 )
+		{
 			char db_name[40];
 			sprintf(db_name,"%s.db",udb);
 			// 1 in active means not active 0 means acitve;
@@ -64,31 +70,37 @@ int main()
 			{
 				//set all previous sessions to inactive.
 				char del_query[150];
-				int del_status = sqlite3_exec(curdb,"update session set active=0 where active=1",NULL,NULL,NULL);
-				char ins[100];
-				sprintf(ins,"insert into session values('%s',UNIXEPOCH(),0,1);",ss);
-				int ins_status = sqlite3_exec(curdb,ins,NULL,NULL,NULL);
-				if( status == uuid_s_ok && del_status== SQLITE_OK && ins_status == SQLITE_OK )
+				sprintf(del_query,"select sestkn from session where sestkn like '%s' and active=1 and (select UNIXEPOCH())-time<=60*15;",&userstring[ui]);
+				sqlite3_stmt *st;
+				int sret=sqlite3_prepare_v2(curdb,del_query,-1,&st,NULL);
+				int stret = sqlite3_step(st);
+				if( sret == SQLITE_OK && stret == SQLITE_ROW && strcmp(&userstring[ui],sqlite3_column_text(st,0))==0 )
 				{
-					puts(ss);
+					memcpy(udb,sqlite3_column_text(st,0),37);
+					sqlite3_finalize(st);
+					puts("Status: 200 OK\r");
+					puts("Content-Type: text/html\r");
+					puts("\r");
+					puts("valid\r");
 					ret_status_code=1;
 				}
+				sqlite3_close(curdb);
 			}
-			sqlite3_close(curdb);
+		}	
+		if( ret_status_code==-1)
+		{
+			puts("Status: 503 ERROR\r");
 		}
-	}	
-	if( ret_status_code==-1)
-		puts("***\r");
+	}
 }
-
-/*
-   sqlite3 *mydb;
-   int sqlRet=sqlite3_open_v2("test.db",&mydb,SQLITE_OPEN_READWRITE,NULL);
-   if( sqlRet == SQLITE_OK )
-   {
-   char stmt[] = "insert into sample values('i',1);";
-   printf("connection established succesfully\n");
-   sqlite3_close(mydb);
-   }
-   printf("sqlRet:%d\n",sqlRet);
- */
+	/*
+	   sqlite3 *mydb;
+	   int sqlRet=sqlite3_open_v2("test.db",&mydb,SQLITE_OPEN_READWRITE,NULL);
+	   if( sqlRet == SQLITE_OK )
+	   {
+	   char stmt[] = "insert into sample values('i',1);";
+	   printf("connection established succesfully\n");
+	   sqlite3_close(mydb);
+	   }
+	   printf("sqlRet:%d\n",sqlRet);
+	 */
