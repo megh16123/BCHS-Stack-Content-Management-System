@@ -1,0 +1,2 @@
+cat pp | sed 's/^\(.*\)/touch \1.db/' | sh 
+ls *.db | sed 's/^\(.*\.db\)/sqlite3 \1 "CREATE TABLE session(sestkn text primary key,time int,logout int,active int default 1);CREATE TABLE files(fname text primary key,size int not null,del_status int default 1);"/'| sh
