@@ -48,7 +48,7 @@ int main()
 	int ret_status_code = -1;
 	char * len = getenv("CONTENT_LENGTH");
 	long ll=0;
-	if( len != NULL && (ll = atoi(len))>0 )
+	if( len != NULL && (ll = (atoi(len)-1))>0 )
 	{
 
 		int i=0;
@@ -90,16 +90,21 @@ int main()
 					puts("Status: 200 OK\r");
 					puts("Content-Type: text/html\r");
 					puts("\r");
-					puts("valid\r");
+					puts("valid");
 					ret_status_code=1;
 				}
+				}
 				sqlite3_close(curdb);
-			}
+			
 		}
-	}	
+		}
+	
 	if( ret_status_code==-1)
 	{
 		puts("Status: 503 ERROR\r");
+                puts("Content-Type: text/html\r");
+		puts("\r");
+		puts("Invalid");
 	}
 }
 /*
