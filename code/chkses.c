@@ -85,7 +85,6 @@ int main()
 				int stret = sqlite3_step(st);
 				if( sret == SQLITE_OK && stret == SQLITE_ROW && strcmp(&userstring[ui],sqlite3_column_text(st,0))==0 )
 				{
-					memcpy(udb,sqlite3_column_text(st,0),37);
 					sqlite3_finalize(st);
 					puts("Status: 200 OK\r");
 					puts("Content-Type: text/html\r");
