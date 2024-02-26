@@ -1,25 +1,28 @@
 # hash file be hash.uid.filename actual file will will userid.filename
 #! /bin/ksh
 
+U_NAME=$(./uuidgen);
+
+export U_NAME=$U_NAME;
+
 ./upld
 
 
-if test $U_NAME && test $(ls $U_NAME.[a-zA-Z0-9_\-.]*) && test $(ls hash.$U_NAME.[a-zA-Z0-9_\-.]*) ;then
+if test $U_NAME && test $(ls $U_NAME.[a-zA-Z0-9_\-.]*) && test $(ls hash.$U_NAME.[a-zA-Z0-9_\-.]*) && test $(ls $U_NAME);then
 	f_name=$(ls $U_NAME.[a-zA-Z0-9_\-.]*);
 	h_name=$(ls hash.$f_name);
 	f=$( echo $f_name |  sed 's/^[^.]*\.//' );
-	echo $f_name;
-	echo $h_name;
-	echo $f;
+	user=$(cat $U_NAME);
 	s=$(wc -c $f_name | sed 's/^ *\([0-9]*\) .*$/\1/');
-	if md5 -qC $h_name $f_name; then
-		echo "something";
+	if md5 -q $h_name ; then
 		uudecode -rm $f_name > $f
-		cp $f  $U_NAME/$f
-		./sqlite3 $U_NAME/$U_NAME.db "insert into files values( '$f',$s,0);";
-		rm $f_name
-		rm $h_name
-		rm $f
+		cp $f  $user/$f
+		./sqlite3 $user/$user.db "insert into files values( '$f',$s,0);";
+		rm $f_name;
+		rm $h_name;
+		rm $U_NAME;
+		rm $f;
+		echo "success";
 	else
 		rm $f_name
 		rm $h_name
