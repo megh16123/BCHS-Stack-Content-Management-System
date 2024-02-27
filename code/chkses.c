@@ -1,12 +1,3 @@
-/*
-intput: b64( uidpasswd ),token
-output: if valid - valid
-invalid - 503 server error
-
- */
-
-
-
 
 #include "sqlite3.h"
 #include <stdio.h>
@@ -48,7 +39,7 @@ int main()
 	int ret_status_code = -1;
 	char * len = getenv("CONTENT_LENGTH");
 	long ll=0;
-	if( len != NULL && (ll = (atoi(len)-1))>0 )
+	if( len != NULL && (ll = atoi(len))>0 )
 	{
 
 		int i=0;
@@ -71,8 +62,8 @@ int main()
 		ui++;
 		if( i==ll && ui<ll &&  check_valid_user(userID) == 1 && udb[0]!=0 )
 		{
-			char db_name[40];
-			sprintf(db_name,"%s.db",udb);
+			char db_name[200];
+			sprintf(db_name,"%s/%s.db",udb,udb);
 			// 1 in active means not active 0 means acitve;
 			uint32_t db_status = sqlite3_open_v2(db_name,&curdb,SQLITE_OPEN_READWRITE,NULL);
 			if( db_status == SQLITE_OK )
@@ -85,35 +76,31 @@ int main()
 				int stret = sqlite3_step(st);
 				if( sret == SQLITE_OK && stret == SQLITE_ROW && strcmp(&userstring[ui],sqlite3_column_text(st,0))==0 )
 				{
+					memcpy(udb,sqlite3_column_text(st,0),37);
 					sqlite3_finalize(st);
 					puts("Status: 200 OK\r");
 					puts("Content-Type: text/html\r");
 					puts("\r");
-					puts("valid");
+					puts("valid\r");
 					ret_status_code=1;
 				}
-				}
 				sqlite3_close(curdb);
-			
+			}
+		}	
+		if( ret_status_code==-1)
+		{
+			puts("Status: 503 ERROR\r");
 		}
-		}
-	
-	if( ret_status_code==-1)
-	{
-		puts("Status: 503 ERROR\r");
-                puts("Content-Type: text/html\r");
-		puts("\r");
-		puts("Invalid");
 	}
 }
-/*
-   sqlite3 *mydb;
-   int sqlRet=sqlite3_open_v2("test.db",&mydb,SQLITE_OPEN_READWRITE,NULL);
-   if( sqlRet == SQLITE_OK )
-   {
-   char stmt[] = "insert into sample values('i',1);";
-   printf("connection established succesfully\n");
-   sqlite3_close(mydb);
-   }
-   printf("sqlRet:%d\n",sqlRet);
- */
+	/*
+	   sqlite3 *mydb;
+	   int sqlRet=sqlite3_open_v2("test.db",&mydb,SQLITE_OPEN_READWRITE,NULL);
+	   if( sqlRet == SQLITE_OK )
+	   {
+	   char stmt[] = "insert into sample values('i',1);";
+	   printf("connection established succesfully\n");
+	   sqlite3_close(mydb);
+	   }
+	   printf("sqlRet:%d\n",sqlRet);
+	 */

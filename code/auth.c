@@ -61,8 +61,8 @@ int main()
 		if( i==ll &&  check_valid_user(userstring) == 1 && udb[0]!=0 )
 		{
 
-			char db_name[40];
-			sprintf(db_name,"%s.db",udb);
+			char db_name[200];
+			sprintf(db_name,"%s/%s.db",udb,udb);
 			// 1 in active means not active 0 means acitve;
 			uint32_t db_status = sqlite3_open_v2(db_name,&curdb,SQLITE_OPEN_READWRITE,NULL);
 			if( db_status == SQLITE_OK )
