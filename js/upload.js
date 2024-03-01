@@ -44,16 +44,17 @@ const file = document.getElementById("myinput");
 		}
 		const url = globurl+"/upload";
 		const method = "POST";
-		const payload = sessionStorage.getItem("token")+","+md5(event.target.result.split(",")[1])+","+file.files[0].name+","+event.target.result.split(",")[1];
+		const payload = sessionStorage.getItem("token")+","+hex_md5(event.target.result.split(",")[1])+","+file.files[0].name+","+event.target.result.split(",")[1];
+		console.log(payload);
 		const {content,status} = await requestHandler(url,method,payload);
 		console.log(content);
         if(status===200){
 			console.log(content);
 			alert("file uploaded successfully");
-			window.location.replace("menu.html");
+			//window.location.replace("menu.html");
 		}else{
-			alert("Some error occured while uploading, Contact the admin ");
-			window.location.replace("menu.html");
+			alert(content)
+			//window.location.replace("menu.html");
 			}
 		}
 	}
