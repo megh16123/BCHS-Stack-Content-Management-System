@@ -1,36 +1,37 @@
-common{back to menu 
-forms
-text input 
-file input
-table 
-headings 
-images 
+common{
+	back to menu 
+	forms
+	text input 
+	file input
+	table 
+	headings 
+	images 
 }
 menu.html{
-purpose : menu
-upload
-view file
-delete 
-logout
-profile
+	purpose : menu
+	upload
+	view file
+	delete 
+	logout
+	profile
 }
 upload.html{
-input file (browse button)
-upload button 
-back to menu 
-file : name validation should only contain alphanumeric . _ - | filesize < 4MB && file shouldn't have any microsoft file extension
+	input file (browse button)
+	upload button 
+	back to menu 
+	file : name validation should only contain alphanumeric . _ - | filesize < 4MB && file shouldn't have any microsoft file extension
 }
 view.html{
-total size of drive
-total count of files
-list of files (tabular format)
-back to menu
+	total size of drive
+	total count of files
+	list of files (tabular format)
+	back to menu
 }
 delete.html{
-table (id,filename)
-input(id) -> to specify the id of file to be deleted 
-delete button 
-back to menu 
+	table (id,filename)
+	input(id) -> to specify the id of file to be deleted 
+	delete button 
+	back to menu 
 }
 profile.html{
 display name

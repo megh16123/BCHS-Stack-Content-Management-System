@@ -81,7 +81,7 @@ int main()
 					puts("Status: 200 OK\r");
 					puts("Content-Type: text/html\r");
 					puts("\r");
-					puts("valid\r");
+					puts("valid");
 					ret_status_code=1;
 				}
 				sqlite3_close(curdb);
@@ -90,6 +90,9 @@ int main()
 		if( ret_status_code==-1)
 		{
 			puts("Status: 503 ERROR\r");
+			puts("Content-Type: text/html\r");
+			puts("\r");
+			puts("invalid");
 		}
 	}
 }

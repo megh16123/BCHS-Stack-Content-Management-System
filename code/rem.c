@@ -18,21 +18,18 @@ YWtyQHB1Y3NkMTIzNHA=,824d1507-82d6-40e3-8e83-b24cb5f2e56a
 char udb[37];
 
 
-int check_valid_user(char *string)
-{
+int check_valid_user(char *string){
 	char query[1000];
 	int retval=-1;
 	sqlite3 * userdb;
 	udb[0]=0;
 	sprintf(query,"select dbd from upass where encid like '%s';",string);
 	uint32_t userdb_status = sqlite3_open_v2("userdb",&userdb,SQLITE_OPEN_READONLY,NULL);
-	if( userdb_status == SQLITE_OK )
-	{
+	if( userdb_status == SQLITE_OK ){
 		sqlite3_stmt *st;
 		int sret=sqlite3_prepare_v2(userdb,query,-1,&st,NULL);
 		int stret = sqlite3_step(st);
-		if( sret == SQLITE_OK && stret == SQLITE_ROW)
-		{
+		if( sret == SQLITE_OK && stret == SQLITE_ROW){
 			memcpy(udb,sqlite3_column_text(st,0),37);
 			retval = 1;
 			sqlite3_finalize(st);
@@ -43,20 +40,17 @@ int check_valid_user(char *string)
 	return retval;
 }
 
-int main()
-{
+int main(){
 	sqlite3 *curdb;
 	int ret_status_code = -1;
 	char * len = getenv("CONTENT_LENGTH");
 	char * u_name = getenv("U_NAME");
 	long ll=0;
-	if( len != NULL && u_name != NULL &&  (ll = atoi(len))>0 )
-	{
+	if( len != NULL && u_name != NULL &&  (ll = atoi(len))>0 ){
 
 		int i=0;
 		char  userstring[1024]; 
-		while( i<ll && i<1024 )
-		{
+		while( i<ll && i<1024 ){
 			userstring[i] = getchar();
 			i++;
 		}
@@ -64,8 +58,7 @@ int main()
 		char userID[100];
 		char token[37];
 		int ui=0;
-		while( userstring[ui] != ',' && ui<ll )
-		{
+		while( userstring[ui] != ',' && ui<ll ){
 			userID[ui]=userstring[ui];
 			ui++;
 
@@ -73,8 +66,7 @@ int main()
 		userID[ui]=0;
 		ui++;
 		int ut;
-		for(  ut=0;userstring[ui]!=','&& ui<ll && ut<37 ;ut++ )
-		{
+		for(  ut=0;userstring[ui]!=','&& ui<ll && ut<37 ;ut++ ){
 			token[ut]=userstring[ui];
 			ui++;
 		}
@@ -82,8 +74,7 @@ int main()
 		token[36]=0;
 		char ud[100];
 		int udi=0;
-		for( udi=0; ui<ll && udi<100 ;udi++)
-		{
+		for( udi=0; ui<ll && udi<100 ;udi++){
 			ud[udi]=userstring[ui];
 			ui++;
 		}

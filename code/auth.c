@@ -40,8 +40,6 @@ int main()
 	if( len != NULL )
 	{
 		long ll = atoi(len);
-		puts("Status: 200 OK\r");
-		puts("Content-Type: text/html\r");
 
 
 		uint32_t status;
@@ -74,15 +72,24 @@ int main()
 				int ins_status = sqlite3_exec(curdb,ins,NULL,NULL,NULL);
 				if( status == uuid_s_ok && del_status== SQLITE_OK && ins_status == SQLITE_OK )
 				{
+					puts("Status: 200 OK\r");
+					puts("Content-Type: text/html\r");
+					puts("\r");
 					puts(ss);
+
 					ret_status_code=1;
 				}
 			}
 			sqlite3_close(curdb);
 		}
 	}
-	if( ret_status_code==-1)
-		puts("***\r");
+	if( ret_status_code==-1){
+	
+		puts("Status: 503 OK\r");
+                puts("Content-Type: text/html\r");
+	        puts("\r");
+	        puts("Invalid");
+	}
 }
 
 /*
