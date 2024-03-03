@@ -6,7 +6,7 @@ const decode_response = async(response) =>{
     	let output = null
     	try {
     	output = new TextDecoder("utf-8").decode(value)
-        
+       	output = output.replace("\n",""); 
     } catch (error) {
         output=null
     }
@@ -25,7 +25,7 @@ const requestHandler = async(url,method,body)=>{
 }
 
 const check_session = async()=>{
-        const url = globurl+"/session";
+        const url = globurl+"/chk";
 	console.log(url);
         const token = sessionStorage.getItem("token")
         const {content,status} = await requestHandler(url,"POST",token);
@@ -49,8 +49,14 @@ const redirects = ()=>{
     } catch (error) {}    
 }
 const processarr=(content)=>{
-    let output = content;
-    return content;
+	content= content.split(",");
+	content.pop()
+	let output = []
+	content.map((item)=>{
+	 let row = item.split("|");
+	 output.push({fname:row[0],size:row[1]});
+	});
+    return output;
     }
 
     const populate_table = (arr) =>{
@@ -64,13 +70,15 @@ const processarr=(content)=>{
         filesize.innerText = `Total Size : ${total_size}`
     }
 const fetch_files = async(e)=>{
-        const url = globurl+"/lst";
+        const url = globurl+"/view";
         const token = sessionStorage.getItem("token")
                 const {content,status} = await requestHandler(url,"POST",token);
+		console.log(content);
                 if(status !==200){
-                window.location.replace('index.html');
+                //window.location.replace('index.html');
                 }else{
                     const arr = processarr(content);
+					console.log(arr);
                     populate_table(arr);
                 }
     }    
