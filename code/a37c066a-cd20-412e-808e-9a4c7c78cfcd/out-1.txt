@@ -1,0 +1,110 @@
+akonadi-backend-sqlite - SQLite storage backend for Akonadi
+anymeal - Recipe management software
+libaprutil1-dbd-sqlite3 - Apache Portable Runtime Utility Library - SQLite3 Driver
+bacula-common-sqlite3 - network backup service - SQLite v3 common files
+bacula-director-sqlite3 - network backup service - SQLite 3 storage for Director
+c2go - tool for transpiling C to Go
+libsqlite3-mod-ceph - SQLite3 VFS for Ceph
+libsqlite3-mod-ceph-dbg - debugging symbols for libsqlite3-mod-ceph
+libsqlite3-mod-ceph-dev - SQLite3 VFS for Ceph (development files)
+cl-sql-sqlite3 - CLSQL database backend, SQLite3
+libcppdb-dev - SQL Connectivity Library (development files)
+libcppdb-mysql0 - SQL Connectivity Library (MySQL backend)
+libcppdb-odbc0 - SQL Connectivity Library (odbc backend)
+libcppdb-postgresql0 - SQL Connectivity Library (PostgreSQL backend)
+libcppdb-sqlite3-0 - SQL Connectivity Library (sqlite3 backend)
+libcppdb0 - SQL Connectivity Library (core library)
+darktable - virtual lighttable and darkroom for photographers
+db5.3-sql-util - Berkeley v5.3 SQL Database Utilities
+dbconfig-common - framework that helps packages to manage databases
+dbconfig-sqlite3 - dbconfig-common SQLite3 support
+elpa-emacsql-sqlite3 - Yet another EmacSQL backend for SQLite
+erlang-p1-sqlite3 - SQLite3 wrapper for Erlang applications
+gambas3-gb-db-sqlite3 - Gambas sqlite3 driver database
+golang-github-go-xorm-builder-dev - SQL builder for XORM written in Go
+golang-github-go-xorm-core-dev - lightweight wrapper of database/sql
+golang-github-mattn-go-sqlite3-dev - sqlite3 driver for go that using database/sql
+guile-sqlite3 - guile bindings for sqlite3
+libghc-persistent-sqlite-dev - SQLite3 backend for the persistent library
+libghc-persistent-sqlite-doc - SQLite3 backend for the persistent library; documentation
+libghc-persistent-sqlite-prof - SQLite3 backend for the persistent library; profiling libraries
+libghc-hdbc-sqlite3-dev - Sqlite v3 HDBC (Haskell Database Connectivity) Driver for GHC
+libghc-hdbc-sqlite3-doc - Sqlite v3 HDBC (Haskell Database Connectivity) Documentation
+libghc-hdbc-sqlite3-prof - Sqlite v3 HDBC Driver for GHC; profiling libraries
+libapache-session-sqlite3-perl - SQLite3 implementation of Apache::Session
+libcache-historical-perl - simple data caching service with time history
+libdbd-sqlite3-perl - Perl DBI driver with a self-contained RDBMS
+libdbd-sqlite3 - SQLite3 database driver for libdbi
+libopendbx1 - Lightweight database access abstraction layer
+libopendbx1-sqlite3 - SQLite3 backend for OpenDBX
+libsqlite3-mod-rasterlite2 - SQLite 3 module for huge raster coverages
+libvsqlitepp-dev - SQLite3 Wrapper for C++ -- development files
+libvsqlitepp-doc - SQLite3 Wrapper for C++ -- API documentation
+libvsqlitepp3v5 - SQLite3 Wrapper for C++
+libzdb-dev - Zild Database Library [devel]
+libzdb11 - Zild Database Library [runtime]
+lua-dbi-sqlite3 - DBI library for the Lua language, sqlite3 backend
+lua-dbi-sqlite3-dev - DBI library for the Lua language, sqlite3 development files
+lua-orbit - MVC web framework for Lua
+lua-sql-sqlite3 - luasql library for the Lua language
+lua-sql-sqlite3-dev - luasql development files for the Lua language
+mailman3-web - Django project integrating Mailman3 Postorius and HyperKitty
+mailman3 - Mailing list management system
+python3-minidb - simple SQLite3-based store for Python objects
+node-sqlite3 - asynchronous, non-blocking SQLite3 bindings for Node.js
+libsqlite3-ocaml - Embeddable SQL Database for OCaml Programs (runtime)
+libsqlite3-ocaml-dev - Embeddable SQL Database for OCaml Programs (development)
+ompl-plannerarena - Open Motion Planning Library (OMPL) plannerarena
+opendnssec-enforcer - tool to prepare DNSSEC keys (common package)
+opendnssec-enforcer-sqlite3 - tool to prepare DNSSEC keys (sqlite3 backend)
+pdns-backend-sqlite3 - sqlite 3 backend for PowerDNS
+php-sqlite3 - SQLite3 module for PHP [default]
+php8.2-sqlite3 - SQLite3 module for PHP
+phpliteadmin - web-based SQLite database admin tool
+phpliteadmin-themes - web-based SQLite database admin tool - themes
+pidgin - graphical multi-protocol instant messaging client
+proftpd-mod-sqlite - Versatile, virtual-hosting FTP daemon - SQLite3 module
+pyfastx - fast random access to sequences from FASTA/Q file - command
+python3-pyfastx - fast random access to sequences from FASTA/Q file - python3 module
+python3-bottle-sqlite - SQLite3 integration for Bottle - Python 3.x
+python3-gffutils - Work with GFF and GTF files in a flexible database framework
+miio-tools - Tools for interfacing with Xiaomi appliances
+python3-persist-queue - thread-safe disk based persistent queue
+roundcube-sqlite3 - metapackage providing SQLite dependencies for RoundCube
+ruby-dataobjects-sqlite3 - SQLite adapter for ruby-dataobjects
+ruby-sequel - Simple, flexible, and powerful SQL database access toolkit for Ruby
+ruby-sqlite3 - SQLite3 interface for Ruby
+librust-libsqlite3-sys-dev - Native bindings to the libsqlite3 library - Rust source code
+slang-sqlite - S-Lang bindings to the sqlite3 database library
+libsoci-sqlite3-4.0 - C++ Database Access Library (SQLite3 backend)
+libsqlite3-mod-spatialite - Geospatial extension for SQLite - loadable module
+sputnik - Extensible wiki
+libsqlcipher-dev - SQLCipher development files
+libsqlcipher0 - SQLCipher shared library
+sqlcipher - Command line interface for SQLCipher
+libsqlite3-0 - SQLite 3 shared library
+libsqlite3-dev - SQLite 3 development files
+libsqlite3-tcl - SQLite 3 Tcl bindings
+sqlite3 - Command line interface for SQLite 3
+sqlite3-doc - SQLite 3 documentation
+sqlite3-tools - Command line interface for SQLite 3 (tools)
+sqlite3-pcre - Perl-compatible regular expression support for SQLite
+libsqlitecpp-dev - smart and easy to use C++ SQLite3 wrapper
+python3-sqlitedict - Persistent dict in Python, backed up by sqlite3 and pickle, multithread-safe
+libsqlite3-mod-blobtoxy - SQLite3 extension module for read-only BLOB to X/Y mapping
+libsqlite3-mod-csvtable - SQLite3 extension module for read-only access to CSV files
+libsqlite3-mod-impexp - SQLite3 extension module for SQL script, XML, JSON and CSV import/export
+libsqlite3-mod-xpath - SQLite3 extension module for querying XML data with XPath
+libsqlite3-mod-zipfile - SQLite3 extension module for read-only access to ZIP files
+sqlsmith - random SQL query generator
+tcl8.6-tdbc-sqlite3 - Tcl Database Connectivity
+tryton-server-postgresql - Tryton application platform - PostgreSQL integration
+ulogd2 - Netfilter Userspace Logging Daemon
+ulogd2-sqlite3 - SQLite 3 extension to ulogd
+uwsgi-plugin-sqlite3 - SQLite 3 configurations plugin for uWSGI
+libsqlite3-mod-virtualpg - Loadable dynamic extension to both SQLite and SpatiaLite
+libwxsqlite3-3.0-dev - transitional package
+libwxsqlite3-3.2-0 - SQLite3 C++ wrapper for use in programs based on the wxWidgets
+libwxsqlite3-3.2-dev - Development files for wxSQLite3
+wxsqlite3-doc - Documentation files for wxSQLite3
+zabbix-proxy-sqlite3 - network monitoring solution - proxy (using SQLite3)

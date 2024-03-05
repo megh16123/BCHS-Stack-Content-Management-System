@@ -1,31 +1,38 @@
-# hash file be hash.uid.filename actual file will will userid.filename
 #! /bin/ksh
 
 U_NAME=$(./uuidgen);
 
 export U_NAME=$U_NAME;
 
-./upld
+./upld;
 
 
 if test $U_NAME && test $(ls $U_NAME.[a-zA-Z0-9_\-.]*) && test $(ls hash.$U_NAME.[a-zA-Z0-9_\-.]*) && test $(ls $U_NAME);then
 	f_name=$(ls $U_NAME.[a-zA-Z0-9_\-.]*);
 	h_name=$(ls hash.$f_name);
 	f=$( echo $f_name |  sed 's/^[^.]*\.//' );
+
 	user=$(cat $U_NAME);
+	#echo -n "#wc out - #$(wc -c $f_name)#";
 	s=$(wc -c $f_name | sed 's/^ *\([0-9]*\) .*$/\1/');
-	if md5 -q $h_name ; then
-		uudecode -rm $f_name > $f
-		cp $f  $user/$f
+	#echo -n  "size is $s";
+	#echo -n  "f-$f";
+	#echo -n "user - $user";
+
+	#echo -n	"./sqlite3 $user/$user.db \"insert into files values( '$f',$s,0);\";" > $U_NAME.commandsh; 
+	#echo -n "file size - $(cat $U_NAME.commandsh;)";
+	if md5 -cq $h_name ; then
+		uudecode -rm $f_name >  $user/$f;
 		./sqlite3 $user/$user.db "insert into files values( '$f',$s,0);";
+		#./sqlite3 $user/$user.db "select * from files;";
+		#sh $U_NAME.commandsh;
 		rm $f_name;
 		rm $h_name;
 		rm $U_NAME;
-		rm $f;
-		echo "success";
+		echo -n  "success";
 	else
-		rm $f_name
-		rm $h_name
+		rm $f_name;
+		rm $h_name;
 		echo "please try again or contact admin";
 
 	fi

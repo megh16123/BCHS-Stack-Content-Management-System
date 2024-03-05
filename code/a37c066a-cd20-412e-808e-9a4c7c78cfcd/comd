@@ -1,0 +1,1 @@
+{printf("insert into upass values('%s','%s',1);\n",$1,$2);}
