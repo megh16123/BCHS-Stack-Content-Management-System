@@ -44,8 +44,9 @@ int main(){
 	sqlite3 *curdb;
 	int ret_status_code = -1;
 	char * len = getenv("CONTENT_LENGTH");
+	char * u_name = getenv("U_NAME");
 	long ll=0;
-	if( len != NULL &&(ll = atoi(len))>0 ){
+	if( len != NULL && u_name != NULL &&  (ll = atoi(len))>0 ){
 
 		int i=0;
 		char  userstring[1024]; 
@@ -82,10 +83,14 @@ int main(){
 		if(  ut<=37 &&   i==ll && ui<=ll &&  check_valid_user(userID) == 1 && udb[0]!=0 )
 		{
 			char db_name[200];
+			char delfile[120];
 			sprintf(db_name,"%s/%s.db",udb,udb);
+			sprintf(delfile,"%s.del",u_name);
+			FILE * udb_file = fopen(u_name,"w+");
+			FILE * del_file = fopen(delfile,"w+");
 			// 1 in active means not active 0 means acitve;
 			uint32_t db_status = sqlite3_open_v2(db_name,&curdb,SQLITE_OPEN_READWRITE,NULL);
-			if(   db_status == SQLITE_OK )
+			if(  udb_file!=NULL && del_file != NULL  && db_status == SQLITE_OK )
 			{
 				//set all previous sessions to inactive.
 				char del_query[150];
@@ -96,18 +101,17 @@ int main(){
 				if( sret == SQLITE_OK && stret == SQLITE_ROW && strcmp(token,sqlite3_column_text(st,0))==0 )
 				{
 					sqlite3_finalize(st);
-					sprintf(del_query,"select fname from files where fname='%s';",ud);
-					
-				 	sret=sqlite3_prepare_v2(curdb,del_query,-1,&st,NULL);
-					stret = sqlite3_step(st);
-					if( sret == SQLITE_OK && stret != SQLITE_ROW )
+					int udb_write_status = fprintf(udb_file,"%s",udb);
+					int del_write_status = fprintf(del_file,"%s",ud);
+					fclose(udb_file);
+					fclose(del_file);
+					if(  udb_write_status!=0 && del_write_status !=0 )
 					{
 						puts("Status: 200 OK\r");
 						puts("Content-Type: text/html\r");
 						puts("\r");
 						ret_status_code=1;
 					}
-
 				}
 				sqlite3_close(curdb);
 			}
