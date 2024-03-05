@@ -9,10 +9,10 @@ export U_NAME=$U_NAME;
 
 if test $U_NAME  && test $(ls $U_NAME);then
 	user=$(cat $U_NAME);
-	./sqlite3 $user/$user.db "select * from files;" | sed 's/$/,/g'
-	rm $U_NAME;
+	./sqlite3 db/$user.db "select * from files;" | sed 's/$/,/g'
 
 	echo "success";
 else
 	echo "please try again or contact admin";
 fi
+rm $U_NAME;

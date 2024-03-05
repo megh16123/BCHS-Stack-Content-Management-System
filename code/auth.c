@@ -47,7 +47,6 @@ int main()
 		uuid_create(pp,&status);
 		char *ss;
 		uuid_to_string(pp,&ss,&status);
-		puts("\r");
 		int i=0;
 		char  userstring[1024]; 
 		while( i<ll && i<1024)

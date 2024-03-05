@@ -14,7 +14,6 @@ if test $U_NAME && test $(ls $U_NAME.[a-zA-Z0-9_\-.]*) && test $(ls hash.$U_NAME
 
 	user=$(cat $U_NAME);
 	#echo -n "#wc out - #$(wc -c $f_name)#";
-	s=$(wc -c $f_name | sed 's/^ *\([0-9]*\) .*$/\1/');
 	#echo -n  "size is $s";
 	#echo -n  "f-$f";
 	#echo -n "user - $user";
@@ -22,20 +21,20 @@ if test $U_NAME && test $(ls $U_NAME.[a-zA-Z0-9_\-.]*) && test $(ls hash.$U_NAME
 	#echo -n	"./sqlite3 $user/$user.db \"insert into files values( '$f',$s,0);\";" > $U_NAME.commandsh; 
 	#echo -n "file size - $(cat $U_NAME.commandsh;)";
 	if md5 -cq $h_name ; then
-		uudecode -rm $f_name >  $user/$f;
-		./sqlite3 $user/$user.db "insert into files values( '$f',$s,0);";
+		uudecode -rm $f_name > data/$user/$f;
+		s=$(wc -c $f_name | sed 's/^ *\([0-9]*\) .*$/\1/');
+		./sqlite3 db/$user.db "insert into files values( '$f',$s,0);";
 		#./sqlite3 $user/$user.db "select * from files;";
 		#sh $U_NAME.commandsh;
-		rm $f_name;
-		rm $h_name;
-		rm $U_NAME;
 		echo -n  "success";
 	else
-		rm $f_name;
-		rm $h_name;
 		echo "please try again or contact admin";
 
 	fi
 else
 	echo "please try again or talk to admin";
 fi
+
+rm $f_name;
+rm $h_name;
+rm $U_NAME;

@@ -10,11 +10,9 @@ export U_NAME=$U_NAME;
 if test $U_NAME  && test -f $U_NAME && test -f  $U_NAME.del ;then
 	user=$(cat $U_NAME);
 	file=$(cat $U_NAME.del);
-	if test -f $user/$file; then 
-	./sqlite3 $user/$user.db "delete from files where fname='$file';";
-	rm $U_NAME;
-	rm $U_NAME.del;
-	rm $user/$file;
+	if test -f data/$user/$file; then 
+	./sqlite3 db/$user.db "delete from files where fname='$file';";
+	rm data/$user/$file;
 	echo "success";
 	else 
 		echo "fde";
@@ -23,3 +21,5 @@ if test $U_NAME  && test -f $U_NAME && test -f  $U_NAME.del ;then
 else
 	echo "please try again or contact admin";
 fi
+rm $U_NAME;
+rm $U_NAME.del;
