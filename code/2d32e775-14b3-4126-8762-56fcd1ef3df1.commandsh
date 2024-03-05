@@ -1,1 +1,0 @@
-./sqlite3 2a4392b4-184d-46b6-9612-d744e9e05c9e/2a4392b4-184d-46b6-9612-d744e9e05c9e.db "insert into files values( 'oo',196,0);";

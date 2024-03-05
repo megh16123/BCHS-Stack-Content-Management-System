@@ -15,7 +15,7 @@ int check_valid_user(char *string)
 	sqlite3 * userdb;
 	udb[0]=0;
 	sprintf(query,"select dbd from upass where encid like '%s';",string);
-	uint32_t userdb_status = sqlite3_open_v2("userdb",&userdb,SQLITE_OPEN_READONLY,NULL);
+	uint32_t userdb_status = sqlite3_open_v2("db/userdb",&userdb,SQLITE_OPEN_READONLY,NULL);
 	if( userdb_status == SQLITE_OK )
 	{
 		sqlite3_stmt *st;
@@ -63,7 +63,7 @@ int main()
 		if( i==ll && ui<ll &&  check_valid_user(userID) == 1 && udb[0]!=0 )
 		{
 			char db_name[200];
-			sprintf(db_name,"%s/%s.db",udb,udb);
+			sprintf(db_name,"db/%s.db",udb);
 			// 1 in active means not active 0 means acitve;
 			uint32_t db_status = sqlite3_open_v2(db_name,&curdb,SQLITE_OPEN_READWRITE,NULL);
 			if( db_status == SQLITE_OK )

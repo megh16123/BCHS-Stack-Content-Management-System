@@ -24,7 +24,7 @@ int check_valid_user(char *string){
 	sqlite3 * userdb;
 	udb[0]=0;
 	sprintf(query,"select dbd from upass where encid like '%s';",string);
-	uint32_t userdb_status = sqlite3_open_v2("userdb",&userdb,SQLITE_OPEN_READONLY,NULL);
+	uint32_t userdb_status = sqlite3_open_v2("db/userdb",&userdb,SQLITE_OPEN_READONLY,NULL);
 	if( userdb_status == SQLITE_OK ){
 		sqlite3_stmt *st;
 		int sret=sqlite3_prepare_v2(userdb,query,-1,&st,NULL);
@@ -84,7 +84,7 @@ int main(){
 		{
 			char db_name[200];
 			char delfile[120];
-			sprintf(db_name,"%s/%s.db",udb,udb);
+			sprintf(db_name,"db/%s.db",udb);
 			sprintf(delfile,"%s.del",u_name);
 			FILE * udb_file = fopen(u_name,"w+");
 			FILE * del_file = fopen(delfile,"w+");

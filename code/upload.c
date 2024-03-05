@@ -27,7 +27,7 @@ int check_valid_user(char *string)
 	sqlite3 * userdb;
 	udb[0]=0;
 	sprintf(query,"select dbd from upass where encid like '%s';",string);
-	uint32_t userdb_status = sqlite3_open_v2("userdb",&userdb,SQLITE_OPEN_READONLY,NULL);
+	uint32_t userdb_status = sqlite3_open_v2("db/userdb",&userdb,SQLITE_OPEN_READONLY,NULL);
 	if( userdb_status == SQLITE_OK )
 	{
 		sqlite3_stmt *st;
@@ -105,7 +105,7 @@ int main()
 			char db_name[200];
 			char hash_file_str[200];
 			sprintf(hash_file_str,"hash.%s.%s",u_name,fileName);
-			sprintf(db_name,"%s/%s.db",udb,udb);
+			sprintf(db_name,"db/%s.db",udb);
 			sprintf(ff_name,"%s.%s",u_name,fileName);
 			FILE * write_file = fopen(ff_name,"w+");
 			FILE * hash_file = fopen(hash_file_str,"w+");
