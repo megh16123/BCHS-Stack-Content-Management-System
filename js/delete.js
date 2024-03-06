@@ -10,8 +10,15 @@ document.getElementById("myform").addEventListener('submit',async(event)=>{
     const {content,status} = await requestHandler(url,"POST",sessionStorage.getItem('token')+","+fileId);
 	console.log(content);
     if(status===200){
-    alert("File Deleted Successfully");
-	window.location.replace("delete.html");
+	    if(content === "success"){
+    		alert("File Deleted Successfully");
+		window.location.replace("delete.html");
+	    }else if(content === "fde"){
+		alert("File does not exist ");
+	    }else{
+		alert("Something went wrong, Try again ");
+	    }
+           document.getElementById("fileid").value="";
     }else{
         console.log(content);
     }

@@ -1,0 +1,4 @@
+CREATE TABLE userpass(userid text primary key,username text,id int);
+insert into userpass values('bnBwQHB1Y3NkMTIzNHA=','nitinpatil',0);
+insert into userpass values('ZG1rQHB1Y3NkMTIzNHA=','damodarkulkarni',2);
+insert into userpass values('cmtAcHVjc2QxMjM0cA==','ritambhara',1)

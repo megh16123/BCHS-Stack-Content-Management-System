@@ -1,0 +1,8 @@
+#! /bin/ksh
+
+U_NAME=$(./uuidgen);
+export U_NAME=$U_NAME;
+
+./tst
+
+

@@ -1,4 +1,3 @@
-
 #! /bin/ksh
 
 U_NAME=$(./uuidgen);
@@ -8,13 +7,19 @@ export U_NAME=$U_NAME;
 ./remove
 
 
-if test $U_NAME  && test $(ls $U_NAME) && test $(ls $U_NAME.del);then
+if test $U_NAME  && test -f $U_NAME && test -f  $U_NAME.del ;then
 	user=$(cat $U_NAME);
 	file=$(cat $U_NAME.del);
+	if test -f $user/$file; then 
 	./sqlite3 $user/$user.db "delete from files where fname='$file';";
 	rm $U_NAME;
 	rm $U_NAME.del;
+	rm $user/$file;
 	echo "success";
+	else 
+		echo "fde";
+	fi
+
 else
 	echo "please try again or contact admin";
 fi
