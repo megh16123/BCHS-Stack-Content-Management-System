@@ -1,12 +1,31 @@
 body {
+    margin: 0;
+    padding: 0;
     background-color:#f0eff0;
-    min-height: 98vh;
-    max-width: 100vw;
+    box-sizing: border-box;
+    position: relative;
+  }
+.main-section{
     display: flex;
+margin-top: 12em;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
-  }
+}
+footer{
+  position: fixed;
+  bottom: 0;
+}
+.main-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(127, 195, 255);
+  color:black;
+  font-weight: 500;
+}
+
 .navbar{
   position: fixed;
   width: 100%;
@@ -15,10 +34,21 @@ body {
   padding-right: 2em;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   gap: 2em;
 }
+.navbar div button{
+margin-right: .7em;
+}
+.navbar div a{
+  margin-left: 3em;
+}
+
 .form{
+  border: 2px solid black;
+  padding: 2em;
+  border-radius: 1em;
 justify-content: center;
 align-items: center;
 display: flex;
@@ -27,14 +57,8 @@ flex-direction: column;
 box-sizing: border-box;
 /* border: solid black; */
 }
-.parent{
-    position: relative;
-    width: 39rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+
+
 input[type="file"] {
   position: relative;
   font-size:larger;
@@ -74,25 +98,23 @@ input[type="file"]::file-selector-button:active {
 }
 .button-31{
     padding: 2% 4% 3% 2%;
-    background-color: #179BD7;
-    font-size: 100%;
+    background-color: #36bbf8;
+    font-size: 1.3em;
+    font-weight: bold;
     position: relative;
     letter-spacing: .1em;
-    color: black;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width:100%;
-    height: 10%;
     margin-top: 4.5em;
     box-shadow: 4px 2px 3px rgba(0, 0, 0, 0.25);
     border: none
-    
-    
 }
 .button-31:hover{
     transform: translateY(-20%);
     transition: all 0.2s;
-    color: white;
-    background-color: #144359;
+    color: rgb(67, 67, 67);
+    background-color: #79cbf1;
     box-shadow: none;
     font-weight: bolder;
 }
@@ -108,15 +130,16 @@ input[type="file"]::file-selector-button:active {
     color: rgb(112, 95, 20);
 }
 .logout{
- 
-    min-height: 2rem;
-    min-width: 10rem;
+  margin-left: .4em;
+    border: none;
+    min-width: 11rem;
     letter-spacing: .04em;
-    background-color: orange;
+    background-color: rgb(231, 151, 2);
+    color: white;
+    font-weight: 550;
     font-size: 23px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 4px 3px 3px 4px;
-    border: solid 1px;
+    padding: 4px 4px 4px 4px;
     border-radius: .2em;
 }
 button{
@@ -125,7 +148,7 @@ button{
 .logout:hover{
     background-color: #f0eff0;
     color: rgb(255, 166, 1);
-    transition: all .7s;
+    transition: all .5s;
 }
 .button-32{
   position: absolute;
@@ -150,11 +173,10 @@ button{
     font-size: 100%;
     position: relative;
     color: rgb(255, 252, 252);
-    font-weight: 600;
+    font-weight: 900;
     letter-spacing: .1em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width:20rem;
-    height: 10%;
+    width:22rem;
     margin-top: 4.5em;
     box-shadow: 4px 2px 3px rgba(0, 0, 0, 0.25);
     border: transparent;
@@ -170,6 +192,46 @@ button{
     box-shadow: none;
     font-weight: bolder;
 }
+.parent a button{
+  height: 200px;
+  width: 200px;
+  margin-left: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+  font-weight: 900;
+  border: none;
+  border-radius: 1em;
+  box-shadow: 10px 10px 10px rgb(154, 153, 153);
+  background-color: rgb(25, 186, 207);
+  } 
+  .parent a{
+    text-decoration: none;
+  }
+  .parent div{
+    display: flex;
+justify-content: center;
+
+  }
+  .parent{
+margin-top: 12em;
+
+  }
+  .parent section{
+    display: flex;
+    justify-content: center;
+  }
+  .parent section .form{
+    border: none;
+    width: 400px;
+    height: 400px;
+  }
+  .parent div table{
+    width:40%;
+  }
 .button-34{
     padding: 2% 4% 3% 2%;
     background-color: rgb(101, 175, 44);
