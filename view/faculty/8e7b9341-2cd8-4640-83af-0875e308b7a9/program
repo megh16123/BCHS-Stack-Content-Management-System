@@ -1,0 +1,4 @@
+
+cat f1| sed "s/^ */sed -n '\//" | sed "s/$/:\/p' ip/e" > p1 ; cat p1 | awk -F: '{print $2}' | sed 's/,/\n/' > c1 ;cat c1 |awk '{print $0,"#",$0,":"}'|sed 's/^ */sed -i "s\//' | sed "s/ # /\/$\(sed \-n '\//" | sed "s/ :/:\/p' ip\)\//" | sed  's/$/" p1/' 
+
+

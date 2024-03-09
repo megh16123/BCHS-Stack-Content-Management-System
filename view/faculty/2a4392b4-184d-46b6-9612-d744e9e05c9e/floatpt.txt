@@ -1,0 +1,32 @@
+section .data
+	a dq 17.0
+	b dq 14.0
+	msg db "value is %f",10,0
+section .bss
+	raid resq 1
+section .text
+	global main
+	extern printf
+main:   fld qword[a]	
+	sub esp,8
+	fstp qword[esp]
+	fld qword[b]	
+	sub esp,8
+	fstp qword[esp]
+	call fatadd
+	fstp qword[raid]
+	add esp,16
+	fld qword[raid]
+	sub esp,8
+	fstp qword[esp]
+	push msg
+	call printf
+	add esp,12
+	ret
+fatadd: enter 0,0 
+	add esp,8
+	fld qword[esp]
+	add esp,8
+	fadd qword[esp]
+	leave
+	ret

@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Faculty Page</title>
+<style>
+#listf{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	gap:0.2rem;
+}
+body{
+display: flex;
+justify-content:center;
+align-items: center;
+}
+</style>
+	</head>
+	<body>
+		<div id="listf">
+		</div>
+		<script>
+			
+        window.onload = (event) =>{
+            let filename = window.location.pathname.split("/").pop().split(".")[0];
+	    const list = document.getElementById("listf");
+            fetch("pinfo.json").then(data=>{
+                data.json().then(d=>{
+			d.map((item)=>{
+			list.innerHTML+= `<a href="${item.label}.html">${item.label}</a>`;
+			});
+                });
+            });
+        }
+		</script>
+	</body>
+</html>
+
+

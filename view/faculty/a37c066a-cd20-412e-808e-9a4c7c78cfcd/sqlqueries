@@ -1,0 +1,7 @@
+
+a)select * from faulty where dept_id =(select dept_id from department where dept_name = 'physics');
+b)
+select * from faulty where dept_id=(select dept_id from department where dept_name = 'physics') and  gender='female' and salary > 50000;
+c)
+
+d) select faculty_name from faculty f , class c , section s , room r, course k where r.room_id = c.room_id and floor_no=1 and time < '12:00:00' and course_name='CS101' and c.cousre_id=c.course_id and s.section_id=

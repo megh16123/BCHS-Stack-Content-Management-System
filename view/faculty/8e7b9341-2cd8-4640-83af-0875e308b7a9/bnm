@@ -1,0 +1,21 @@
+  |1 2 3 4|
+  |5 6 7 8|
+  |6 4 2 8|
+  |5 7 1 3|
+
+
+[1,5,6,5],[2,6,4,7],[3,7,2,1],[4,8,8,3]
+
+
+raa.c.a.l -> daa.c.a.l.[]
+daa.c.c.e.a.l.ls -> daa.c.a.l.c.e.ls
+daa.c.c.e.[].l -> p.gaa.l.c.e
+gaa.c.c.e.a.l -> c.e.gaa.c.a.l
+gaa.c.c.e.c.es.[].l -> c.e.[].gaaa.l.c.es.ls
+gaa.c.c.e.a.[].l -> c.e.gaa.c.a.[].l
+gaa.c.c.e.[].[].l -> c.e.l
+p.c.c.e.a.l.ls ->c.a.p.l.c.e.ls
+
+
+
+
