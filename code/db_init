@@ -1,6 +1,8 @@
-cat pp | sed 's/^\(.*\)/mkdir \1/' | sh
-cat pp | sed 's/^\(.*\)/touch \1\/\1.db/' | sh 
-cat pp | sed 's/^\(.*\)$/sqlite3 \1\/\1.db "CREATE TABLE session(sestkn text primary key,time int,logout int,active int default 1);CREATE TABLE files(fname text primary key,size int not null,del_status int default 1);"/'| sh
-cat pp | sed 's/^\(.*\)$/chmod -R a+rwx \1'| sh
-cat pp | sed 's/^\(.*\)/mv \1 \/var\/www\/cgi\-bin\//' | sh 
+mkdir data;
+mkdir db;
 
+cat pp | sed 's/^\(.*\)/mkdir data\/\1/' | sh;
+cat pp | sed 's/^\(.*\)/touch db\/\1.db/' | sh; 
+cat pp | sed 's/^\(.*\)$/sqlite3  db\/\1.db "CREATE TABLE session(sestkn text primary key,time int,logout int,active int default 1);CREATE TABLE files(fname text primary key,size int not null,del_status int default 1);"/'| sh;
+mv data /var/www/cgi-bin/;
+mv db /var/www/cgi-bin;
