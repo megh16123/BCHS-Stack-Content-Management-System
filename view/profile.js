@@ -9,7 +9,7 @@
                     let res = d.filter((item)=>item.label===filename)[0];
                     name.innerText = res.name;
                     description.innerText = res.description;
-                    linktomypage.href = `./faculty/${res.link}/index.html`;
+                    linktomypage.href = `./faculty/${res.label}/index.html`;
                     image.src = `res/${res.image}`;
                 });
             });
