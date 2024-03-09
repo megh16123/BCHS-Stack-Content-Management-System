@@ -1,4 +1,3 @@
-let globurl = "http://192.168.0.123:8880/cgi-bin"
 
 const decode_response = async(response) =>{
 	const reader = response.body.getReader();

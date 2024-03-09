@@ -1,7 +1,7 @@
 check_session();
 redirects();
 const file_size_validator = (file) =>{
-	if(file.size/1000000>2){
+	if(file.size/1000000>limit){
 		return true;
 	}else{
 		return false;
