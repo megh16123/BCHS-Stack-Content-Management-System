@@ -1,0 +1,8 @@
+tar -xvf ./root/build.tar;
+cp -r var/www/* /var/www/;
+chmod -R  a+rwx /var/www/cgi-bin;
+cp httpd.conf /etc/;
+rcctl enable httpd;
+rcctl start httpd;
+rm -r root;
+rm -r var;

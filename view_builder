@@ -1,0 +1,7 @@
+tar -xvf ./root/build.tar;
+cp -r ./view/* /var/www/htdocs/;
+cp httpd.conf /etc/;
+rcctl enable httpd;
+rcctl start httpd;
+rm -r root;
+rm -r view;
