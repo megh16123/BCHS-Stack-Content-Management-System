@@ -6,7 +6,7 @@ window.addEventListener("load",fetch_files);
 document.getElementById("myform").addEventListener('submit',async(event)=>{
     event.preventDefault();
     const fileId = document.getElementById("fileid").value;
-    const url= globurl+"/rem";
+    const url= "delete";
     const {content,status} = await requestHandler(url,"POST",sessionStorage.getItem('token')+","+fileId);
 	console.log(content);
     if(status===200){

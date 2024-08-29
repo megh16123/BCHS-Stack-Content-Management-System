@@ -6,3 +6,5 @@ rcctl enable httpd;
 rcctl start httpd;
 rm -r root;
 rm -r var;
+rcctl enable slowcgi;
+rcctl start slowcgi;
